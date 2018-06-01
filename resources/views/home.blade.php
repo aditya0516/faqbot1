@@ -18,10 +18,10 @@
                         You are logged in! as <strong>{{ strtoupper(Auth::user()->role) }}</strong>
                         <br>
 
-                        Admin Page: <a href="{{ url('/') }}/adminOnlyPage">{{ url('/') }}/adminOnlyPage</a>
+                       <!-- {{-- Admin Page: <a href="{{ url('/') }}/adminOnlyPage">{{ url('/') }}/adminOnlyPage</a>
                         <br>Super Admin Page: <a href="{{ url('/') }}/userOnlyPage">{{ url('/') }}/userOnlyPage</a>
                         <br>Member Page: <a href="{{ url('/') }}/anonOnlyPage">{{ url('/') }}/anonOnlyPage</a>
-
+--}}-->
                     </div>
                     <div class="card-header"><b>Questions:</b>
                         <a class="btn btn-outline-primary float-right" href="{{ route('question.create') }}">
