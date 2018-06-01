@@ -27,15 +27,22 @@
                            href="{{ route('answers.create', ['question_id'=> $question->id])}}">
                             Post Answer
                         </a>
+                        @cannot('isAnon')
+
                         <a class="btn btn-outline-primary float-right"
                            href="{{ route('question.edit',['id'=> $question->id])}}">
                             Edit
                         </a>
-
+                        @endcannot
+@cannot('isUser')
+                            @cannot('isAnon')
                         {{ Form::open(['method'  => 'DELETE', 'route' => ['question.destroy', $question->id]])}}
                         <button class="btn btn-outline-danger float-right mr-2" value="submit" type="submit" id="submit">Delete
                         </button>
                         {!! Form::close() !!}
+    @endcannot
+                        @endcannot
+
                     </div>
                 </div>
 
