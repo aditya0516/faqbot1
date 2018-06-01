@@ -8,7 +8,21 @@
         <div class="row justify-content-center">
             <div class="col-md-9">
                 <div class="card">
+                    <div class="panel-body">
+                        @if (session('status'))
+                            <div class="alert alert-success">
+                                {{ session('status') }}
+                            </div>
+                        @endif
 
+                        You are logged in! as <strong>{{ strtoupper(Auth::user()->role) }}</strong>
+                        <br>
+
+                        Admin Page: <a href="{{ url('/') }}/adminOnlyPage">{{ url('/') }}/adminOnlyPage</a>
+                        <br>Super Admin Page: <a href="{{ url('/') }}/userOnlyPage">{{ url('/') }}/userOnlyPage</a>
+                        <br>Member Page: <a href="{{ url('/') }}/anonOnlyPage">{{ url('/') }}/anonOnlyPage</a>
+
+                    </div>
                     <div class="card-header"><b>Questions:</b>
                         <a class="btn btn-outline-primary float-right" href="{{ route('question.create') }}">
                             + Add Question

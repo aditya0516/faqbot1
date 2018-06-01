@@ -52,4 +52,15 @@ Route::resources([
 ]);
 
 
-
+Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
+{
+    Route::match(['get', 'post'], '/adminOnlyPage/', 'HomeController@admin');
+});
+Route::group(['middleware' => 'App\Http\Middleware\UserMiddleware'], function()
+{
+    Route::match(['get', 'post'], '/userOnlyPage/', 'HomeController@user');
+});
+Route::group(['middleware' => 'App\Http\Middleware\AnonymousMiddleware'], function()
+{
+    Route::match(['get', 'post'], '/anonOnlyPage/', 'HomeController@anonymous');
+});

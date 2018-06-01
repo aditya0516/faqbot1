@@ -26,5 +26,14 @@ class HomeController extends Controller
         $questions = $questionRepository->getQuestionsList();
         return view('home', compact('questions'));
     }
+    public function admin(Request $req){
+        return view('middleware')->withMessage("Admin");
+    }
+    public function user(Request $req){
+        return view('middleware')->withMessage("User");
+    }
+    public function anonymous(Request $req){
+        return view('middleware')->withMessage("Anonymous");
+    }
 }
 
