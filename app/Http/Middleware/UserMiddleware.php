@@ -21,6 +21,5 @@ class UserMiddleware
             return new Response(view('unauthorized')->with('role', 'USER'));
         }
         return $next($request);
-
     }
 }
